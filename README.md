@@ -40,13 +40,16 @@ Next.js 16 · TypeScript · Tailwind CSS v4 · next-intl
 
 ## Ölçümler
 
-Canlı sitede, Lighthouse mobil (4 koşunun medyanı):
+Canlı sitede, Lighthouse mobil:
 
-| Performance | Accessibility | Best Practices | SEO |
+| Accessibility | Best Practices | SEO | CLS |
 |---|---|---|---|
-| 97 | 100 | 100 | 100 |
+| 100 | 100 | 100 | 0 |
 
-LCP 1.6 s · CLS 0
+Bu dördü her koşuda aynı çıkıyor. Performance skoru 86–100 arasında
+değişiyor; ölçümün yapıldığı makinenin yüküne bağlı olduğu için tek bir
+sayı vermek yerine aralığı yazıyorum. Kendiniz ölçmek isterseniz:
+[pagespeed.web.dev](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fotel1website.vercel.app%2Ftr)
 
 ## Not
 
