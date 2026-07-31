@@ -5,7 +5,7 @@ Fotoğraf kullanmadan, yalnızca tipografi ve boşlukla kurulmuş bir tasarım d
 
 **[Canlı demo → otel1website.vercel.app](https://otel1website.vercel.app)**
 
-![Vela Hotel ana sayfası](docs/screenshot.jpg)
+[![Vela Hotel ana sayfası](docs/screenshot.jpg)](https://otel1website.vercel.app)
 
 ## Neler var
 
