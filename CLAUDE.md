@@ -634,6 +634,23 @@ Hedef **WCAG 2.2 AA** ve Lighthouse Accessibility 100.
 - Tailwind sınıfları uzarsa `clsx`/`cva` ile ayrıştırılır, ama soyutlama uğruna bileşen üretme.
 - Yorum satırı "ne" değil "neden" anlatır.
 
+### Form yazarken bilinen tuzak
+
+Doğrulama hatasından sonra **`<select>` seçimi sıfırlanır**; metin alanları
+sıfırlanmaz. Sebep: `defaultValue` yalnızca bileşen ilk bağlandığında uygulanır.
+
+Kontrollü `<select>` (`value` + `onChange`) bunu **çözmez** — denendi ve ölçüldü:
+React doğru değeri tutuyordu ama DOM'da boş seçenek işaretli kalıyordu.
+
+Çalışan çözüm, sunucudan gelen değeri `key`'e koymaktır:
+
+```tsx
+<SelectField key={`room-${roomValue}`} defaultValue={roomValue} … />
+```
+
+Değer değişince React yeni bir `<select>` oluşturur ve `defaultValue` temiz bir
+bağlanmada uygulanır. Örnek: `components/sections/BookingForm.tsx`.
+
 ---
 
 ## 15. Faz Planı
@@ -658,10 +675,17 @@ Sırayla ilerlenir. Bir faz bitmeden sonrakine geçilmez.
 > rezervasyon formu orada yazılıyor. Kullanıcısı olmayan bileşen spekülasyondur.
 
 **Faz 2 — Sayfalar**
-- [ ] `components/ui/`: Input, Field, Select (rezervasyon formuyla birlikte)
-- [ ] Odalar listesi + oda detay (`generateStaticParams`)
-- [ ] Restoran, Konum, Galeri, Hakkımızda, SSS, İletişim
-- [ ] Rezervasyon: tarih/kişi/oda seçici, doğrulama, simüle gönderim
+- [x] `components/ui/Field.tsx`: TextField, SelectField, TextAreaField
+- [x] Odalar listesi + oda detay (`generateStaticParams`)
+- [x] Kahvaltı ve Teras, Konum, Hakkımızda, SSS, İletişim
+- [x] Rezervasyon: tarih/kişi/oda seçici, doğrulama, simüle gönderim
+- [x] `lib/seo.ts`: canonical + hreflang üreticisi (yollar routing.ts'ten)
+
+> **Galeri sayfası kaldırıldı** — fotoğrafsız tasarımda (§6) boş bir kabuk olurdu.
+>
+> **"Restoran" → "Kahvaltı ve Teras"** (`/teras` ↔ `/terrace`). Otelde restoran
+> yok; `hotel.ts` yalnızca kahvaltı ve teras barı listeliyor. Olmayan olanağı
+> vaat eden bir nav bağlantısı, sitenin geri kalanındaki dürüstlüğü bozar.
 
 **Faz 3 — SEO + GEO**
 - [ ] `lib/schema.ts` — tüm JSON-LD üreticileri

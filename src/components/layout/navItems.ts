@@ -5,9 +5,9 @@
  */
 export const navItems = [
   { href: "/odalar", key: "rooms" },
-  { href: "/restoran", key: "restaurant" },
+  { href: "/teras", key: "terrace" },
   { href: "/konum", key: "location" },
-  { href: "/galeri", key: "gallery" },
   { href: "/hakkimizda", key: "about" },
+  { href: "/sss", key: "faq" },
   { href: "/iletisim", key: "contact" },
 ] as const;

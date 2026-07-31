@@ -6,9 +6,8 @@
   "nav": {
     "home": "Ana Sayfa",
     "rooms": "Odalar",
-    "restaurant": "Restoran",
+    "terrace": "Kahvaltı ve Teras",
     "location": "Konum",
-    "gallery": "Galeri",
     "about": "Hakkımızda",
     "faq": "Sıkça Sorulanlar",
     "contact": "İletişim",
@@ -18,15 +17,166 @@
     "closeMenu": "Menüyü kapat",
     "switchLanguage": "Dili değiştir"
   },
+  "distance": {
+    "walk": "{minutes} dk yürüme",
+    "drive": "{minutes} dk araçla"
+  },
   "room": {
     "size": "Büyüklük",
     "occupancy": "Kapasite",
     "bed": "Yatak",
     "count": "Oda sayısı",
+    "view": "Manzara",
+    "hasView": "Var",
+    "noView": "İç avlu",
     "guests": "{count} kişi",
     "roomsAvailable": "{count} oda",
     "from": "Başlangıç fiyatı",
-    "perNight": "gecelik, kahvaltı dahil"
+    "perNight": "gecelik, kahvaltı dahil",
+    "specsHeading": "Oda künyesi",
+    "amenitiesHeading": "Otel olanakları",
+    "bookThis": "Bu odayı sorgula",
+    "backToRooms": "Tüm odalara dön",
+    "metaTitle": "{name} — {hotel}",
+    "metaDescription": "{name}, {city} {neighborhood}'daki Vela Hotel'de {size} m² büyüklüğünde ve {guests} kişiliktir. Kahvaltı fiyata dahildir."
+  },
+  "rooms": {
+    "metaTitle": "Odalar ve fiyatlar",
+    "metaDescription": "Vela Hotel'de {types} oda tipi, toplam {total} oda bulunur. Büyüklük, kapasite, yatak ve gecelik başlangıç fiyatları bu sayfada listelenmiştir.",
+    "title": "Odalar",
+    "lead": "Üç oda tipi, toplam {total} oda. Binanın kendi geometrisi her katta farklı bir plan bıraktığı için hiçbir oda diğerinin kopyası değil.",
+    "detail": "{name} detayları",
+    "cta": "Müsaitlik Sorgula"
+  },
+  "terrace": {
+    "metaTitle": "Kahvaltı ve teras",
+    "metaDescription": "Vela Hotel'de kahvaltı 07:30–10:30 arası teras katında servis edilir ve fiyata dahildir. Teras bar 16:00'dan sonra açıktır. Otelde restoran yoktur.",
+    "title": "Kahvaltı ve teras",
+    "lead": "Otelde restoran yok. Olan iki şey var: her sabah kurulan bir kahvaltı sofrası ve akşamüstü açılan bir çatı terası.",
+    "breakfast": {
+      "title": "Kahvaltı",
+      "body": "07:30–10:30 arası teras katında, tüm oda tiplerinde fiyata dahil. Peynir ve zeytin haftalık olarak Kadıköy'den, ekmek her sabah caddenin altındaki fırından gelir. Yumurta siparişle pişer."
+    },
+    "terrace": {
+      "title": "Teras",
+      "body": "Çatı katında, 16:00'dan sonra açık. Haliç'e ve karşı yakaya bakar. Sınırlı bir içecek ve meze listesi var; akşam yemeği servisi yok."
+    },
+    "honesty": {
+      "title": "Olmayanlar",
+      "body": "Oda servisi, havuz, spa ve fitness salonu yok. Bina 1890 yapımı ve asansörü bulunmuyor. Bunları baştan söylüyoruz ki beklentiniz yerinde olsun."
+    },
+    "hoursBreakfast": "Kahvaltı",
+    "hoursTerrace": "Teras bar",
+    "hoursReception": "Resepsiyon",
+    "allDay": "7/24 açık"
+  },
+  "location": {
+    "metaTitle": "Konum ve ulaşım",
+    "metaDescription": "Vela Hotel, {city} {neighborhood}'da {street} adresindedir. Galata Kulesi'ne 250 metre, Karaköy'e 700 metre yürüme mesafesindedir.",
+    "title": "Konum ve ulaşım",
+    "lead": "{street}, Galata'nın en dik ve en sessiz caddelerinden biri. Araç trafiğine kapalı olduğu için son birkaç yüz metre yürüyerek geliniyor.",
+    "addressHeading": "Adres",
+    "openMap": "Haritada aç",
+    "gettingHereHeading": "Nasıl gelinir",
+    "distancesHeading": "Mesafeler",
+    "routes": {
+      "metro": {
+        "title": "Metro",
+        "body": "M2 hattı Şişhane durağı 550 metre uzaklıkta, yürüyerek 7 dakika. Çıkışta Tünel yönüne dönün."
+      },
+      "tram": {
+        "title": "Tramvay",
+        "body": "T1 hattı Karaköy durağından 700 metre. Yokuş dik; alternatif olarak Tünel füniküleriyle yukarı çıkıp 400 metre yürüyebilirsiniz."
+      },
+      "taxi": {
+        "title": "Taksi",
+        "body": "Serdar-ı Ekrem Caddesi araç trafiğine kapalıdır. Sürücüden sizi Galata Kulesi meydanında bırakmasını isteyin; otel 250 metre ileridedir."
+      },
+      "foot": {
+        "title": "Bagajla geliş",
+        "body": "Cadde taş döşeli ve eğimlidir. Ağır bagajla geliyorsanız 300 metre mesafedeki anlaşmalı otoparka vale hizmetimiz var; önceden haber verin."
+      }
+    }
+  },
+  "about": {
+    "metaTitle": "Hakkımızda",
+    "metaDescription": "Vela Hotel, {city} {neighborhood}'da {year} yapımı bir apartmanda {rooms} odalı bir butik oteldir. Bina cephesi korunarak yenilenmiştir.",
+    "title": "Bina ve biz",
+    "lead": "{year} yapımı bir apartman. Cephesi hiç değişmedi, içi bir kez baştan kuruldu.",
+    "paragraphs": {
+      "building": "Bina {year}'da bir aile apartmanı olarak yapıldı. Serdar-ı Ekrem Caddesi o dönemde Galata'nın en yeni sokaklarından biriydi; cephedeki taş işçiliği ve demir balkon korkulukları bugün de ilk günkü yerinde duruyor.",
+      "restoration": "Yenileme {since} yılında tamamlandı. Cepheye dokunulmadı, taşıyıcı duvarlar korundu. Kat planları değiştirilmediği için hiçbir oda diğerinin kopyası değil — {rooms} odanın her biri binanın kendi geometrisine uyuyor.",
+      "today": "Bugün burada {rooms} oda, bir kahvaltı katı ve bir çatı terası var. Asansör yok; bina bunun için tasarlanmamıştı ve eklemek taşıyıcı yapıyı bozmak anlamına gelirdi. Zemin katta iki oda, merdiven kullanmak istemeyen misafirler için ayrıldı."
+    },
+    "factBuilding": "Bina yılı",
+    "factRooms": "Oda",
+    "factSince": "Yenileme",
+    "factFloors": "Kat geçişi",
+    "noLift": "Merdiven"
+  },
+  "faq": {
+    "metaTitle": "Sıkça sorulan sorular",
+    "metaDescription": "Vela Hotel'de giriş 15:00, çıkış 12:00'dir. Kahvaltı fiyata dahildir, evcil hayvan kabul edilir, otelin otoparkı ve asansörü yoktur.",
+    "title": "Sıkça sorulanlar",
+    "lead": "Misafirlerimizin rezervasyondan önce en çok sorduğu şeyler. Cevabı burada bulamadığınız bir soru varsa arayın."
+  },
+  "booking": {
+    "metaTitle": "Müsaitlik sorgula",
+    "metaDescription": "Vela Hotel için tarih, oda tipi ve kişi sayısı seçerek müsaitlik sorgulayın. Giriş {checkin}, çıkış {checkout}.",
+    "title": "Müsaitlik sorgula",
+    "lead": "Tarihlerinizi ve oda tipini seçin. Talebinizi aldıktan sonra en geç bir iş günü içinde dönüş yapıyoruz.",
+    "checkin": "Giriş tarihi",
+    "checkout": "Çıkış tarihi",
+    "checkinHint": "Giriş saat {time}'ten itibaren",
+    "checkoutHint": "Çıkış saat {time}'ye kadar",
+    "room": "Oda tipi",
+    "roomPlaceholder": "Seçiniz",
+    "guests": "Kişi sayısı",
+    "name": "Ad soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "notes": "Eklemek istedikleriniz",
+    "optional": "İsteğe bağlı",
+    "submit": "Talebi gönder",
+    "submitting": "Gönderiliyor…",
+    "demoNotice": "Bu bir demo formudur; gerçek rezervasyon oluşturmaz.",
+    "errorSummary": "{count} alan düzeltilmeli. Ayrıntılar alanların yanında.",
+    "successTitle": "Form doğrulandı",
+    "demoSuccess": "Girdiğiniz bilgiler geçerli. Vela Hotel kurgusal bir otel olduğu için burada gerçek bir talep oluşturulmadı, e-posta gönderilmedi ve hiçbir yere kayıt yazılmadı. Bu sayfa bir portfolyo çalışmasıdır.",
+    "errors": {
+      "checkinRequired": "Giriş tarihi gerekli.",
+      "checkoutRequired": "Çıkış tarihi gerekli.",
+      "dateInvalid": "Tarihi GG.AA.YYYY biçiminde seçin.",
+      "checkinPast": "Giriş tarihi bugünden önce olamaz.",
+      "checkoutBeforeCheckin": "Çıkış tarihi giriş tarihinden sonra olmalı.",
+      "roomRequired": "Bir oda tipi seçin.",
+      "roomUnknown": "Seçilen oda tipi bulunamadı.",
+      "guestsRequired": "Kişi sayısı gerekli.",
+      "guestsInvalid": "Kişi sayısı en az 1 olmalı.",
+      "guestsTooMany": "{room} en fazla {max} kişiliktir. Daha büyük bir oda seçin.",
+      "nameRequired": "Ad soyad gerekli.",
+      "emailRequired": "E-posta gerekli.",
+      "emailInvalid": "Geçerli bir e-posta adresi girin.",
+      "messageRequired": "Mesaj boş olamaz."
+    }
+  },
+  "contact": {
+    "metaTitle": "İletişim",
+    "metaDescription": "Vela Hotel'e {phone} numarasından ulaşabilirsiniz. Otel {city} {neighborhood}'dadır ve resepsiyon 7/24 açıktır.",
+    "title": "İletişim",
+    "lead": "Resepsiyon gün boyu açık. Acele bir sorunuz varsa aramak en hızlısı.",
+    "directHeading": "Doğrudan",
+    "formHeading": "Mesaj gönderin",
+    "receptionHours": "Resepsiyon 7/24 açıktır.",
+    "name": "Ad soyad",
+    "email": "E-posta",
+    "message": "Mesajınız",
+    "submit": "Gönder",
+    "submitting": "Gönderiliyor…",
+    "demoNotice": "Bu bir demo formudur; mesaj iletilmez.",
+    "errorSummary": "{count} alan düzeltilmeli.",
+    "successTitle": "Form doğrulandı",
+    "demoSuccess": "Girdiğiniz bilgiler geçerli. Vela Hotel kurgusal olduğu için mesajınız hiçbir yere iletilmedi. Bu sayfa bir portfolyo çalışmasıdır."
   },
   "home": {
     "hero": {
@@ -63,8 +213,6 @@
     "location": {
       "title": "Nereye ne kadar",
       "lead": "{street}, Galata'nın en dik ve en sessiz caddelerinden biri. Aşağıdaki mesafelerin tamamı yürüme mesafesidir.",
-      "walk": "{minutes} dk yürüme",
-      "drive": "{minutes} dk araçla",
       "cta": "Konum ve ulaşım"
     },
     "testimonials": {

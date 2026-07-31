@@ -13,6 +13,9 @@ import type { Locale } from "@/lib/routing";
  */
 export async function LocationSection({ locale }: { locale: Locale }) {
   const t = await getTranslations("home.location");
+  // Mesafe ifadeleri ortak ad alanında: konum sayfası da aynı metni kullanır,
+  // iki yerde kopyalanırsa er geç ayrışırlar.
+  const tDist = await getTranslations("distance");
 
   return (
     <section className="border-border border-b">
@@ -39,7 +42,7 @@ export async function LocationSection({ locale }: { locale: Locale }) {
                 {place.meters} m
               </span>
               <span className="text-muted-fg font-sans text-small tabular-nums">
-                {t("walk", { minutes: place.walkMinutes })}
+                {tDist("walk", { minutes: place.walkMinutes })}
               </span>
             </li>
           ))}
@@ -58,7 +61,7 @@ export async function LocationSection({ locale }: { locale: Locale }) {
                 {airport.km} km
               </span>
               <span className="text-muted-fg font-sans text-small tabular-nums">
-                {t("drive", { minutes: airport.driveMinutes })}
+                {tDist("drive", { minutes: airport.driveMinutes })}
               </span>
             </li>
           ))}

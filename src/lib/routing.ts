@@ -21,9 +21,10 @@ export const routing = defineRouting({
     "/": "/",
     "/odalar": { tr: "/odalar", en: "/rooms" },
     "/odalar/[slug]": { tr: "/odalar/[slug]", en: "/rooms/[slug]" },
-    "/restoran": { tr: "/restoran", en: "/restaurant" },
+    // "Restoran" değil: otelde restoran yok, kahvaltı ve teras barı var.
+    // Olmayan olanağı vaat etmemek için yol ve etiket buna göre.
+    "/teras": { tr: "/teras", en: "/terrace" },
     "/konum": { tr: "/konum", en: "/location" },
-    "/galeri": { tr: "/galeri", en: "/gallery" },
     "/hakkimizda": { tr: "/hakkimizda", en: "/about" },
     "/sss": { tr: "/sss", en: "/faq" },
     "/iletisim": { tr: "/iletisim", en: "/contact" },
