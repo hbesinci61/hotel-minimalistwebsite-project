@@ -37,14 +37,15 @@
     "amenitiesHeading": "Hotel amenities",
     "bookThis": "Check this room",
     "backToRooms": "Back to all rooms",
-    "metaTitle": "{name} — {hotel}",
-    "metaDescription": "The {name} at Vela Hotel in {neighborhood}, {city} measures {size} m² and sleeps {guests}. Breakfast is included in the rate."
+    "metaTitle": "{name} — {size} m²",
+    "metaDescription": "The {name} at Vela Hotel in {neighborhood}, {city} measures {size} m² and sleeps {guests}. Breakfast is included in the rate.",
+    "positioning": "The {name} is one of {total} rooms at Vela Hotel in {neighborhood}, {city}. It measures {size} m² and sleeps up to {guests}."
   },
   "rooms": {
     "metaTitle": "Rooms and rates",
     "metaDescription": "Vela Hotel has {types} room types across {total} rooms. Size, occupancy, bed and nightly starting rates are listed on this page.",
     "title": "Rooms",
-    "lead": "Three room types, {total} rooms in total. The building's own geometry left a different plan on every floor, so no room is a copy of another.",
+    "lead": "Vela Hotel has three room types across {total} rooms. The building's own geometry left a different plan on every floor, so no room is a copy of another.",
     "detail": "{name} details",
     "cta": "Check Availability"
   },
@@ -52,7 +53,7 @@
     "metaTitle": "Breakfast and terrace",
     "metaDescription": "Breakfast at Vela Hotel is served on the terrace floor from 07:30 to 10:30 and is included in the rate. The terrace bar opens after 16:00. There is no restaurant.",
     "title": "Breakfast and terrace",
-    "lead": "There is no restaurant. There are two things instead: a breakfast table laid every morning, and a roof terrace that opens in the late afternoon.",
+    "lead": "Vela Hotel has no restaurant. There are two things instead: a breakfast table laid every morning, and a roof terrace that opens in the late afternoon.",
     "breakfast": {
       "title": "Breakfast",
       "body": "07:30 to 10:30 on the terrace floor, included with every room type. Cheese and olives come weekly from Kadıköy; the bread arrives each morning from the bakery below the street. Eggs are cooked to order."
@@ -74,7 +75,7 @@
     "metaTitle": "Location and getting here",
     "metaDescription": "Vela Hotel is at {street} in {neighborhood}, {city}. It is a 250-metre walk from Galata Tower and 700 metres from Karaköy.",
     "title": "Location and getting here",
-    "lead": "{street} is one of the steepest and quietest streets in Galata. It is closed to traffic, so the last few hundred metres are on foot.",
+    "lead": "Vela Hotel is at {street}. This is one of the steepest and quietest streets in Galata; it is closed to traffic, so the last few hundred metres are on foot.",
     "addressHeading": "Address",
     "openMap": "Open in map",
     "gettingHereHeading": "How to get here",
@@ -102,7 +103,7 @@
     "metaTitle": "About",
     "metaDescription": "Vela Hotel is a {rooms}-room boutique hotel in a {year} apartment building in {neighborhood}, {city}. The façade was preserved through the renovation.",
     "title": "The building and us",
-    "lead": "An apartment building from {year}. The façade never changed; the inside was rebuilt once.",
+    "lead": "The building Vela Hotel occupies dates from {year}. The façade never changed; the inside was rebuilt once.",
     "paragraphs": {
       "building": "The building went up in {year} as a family apartment house. Serdar-ı Ekrem Street was one of the newest streets in Galata at the time; the stonework on the façade and the iron balcony railings are still where they were on the first day.",
       "restoration": "The renovation was completed in {since}. The façade was left untouched and the load-bearing walls were kept. Because the floor plans were not altered, no room is a copy of another — each of the {rooms} rooms follows the building's own geometry.",
@@ -118,13 +119,13 @@
     "metaTitle": "Frequently asked questions",
     "metaDescription": "Check-in at Vela Hotel is 15:00 and check-out is 12:00. Breakfast is included, pets are welcome, and there is no car park or lift.",
     "title": "Frequently asked",
-    "lead": "The things guests ask most often before booking. If your question isn't answered here, give us a call."
+    "lead": "The things guests ask Vela Hotel most often before booking. If your question isn't answered here, give us a call."
   },
   "booking": {
     "metaTitle": "Check availability",
     "metaDescription": "Check availability at Vela Hotel by choosing your dates, room type and number of guests. Check-in {checkin}, check-out {checkout}.",
     "title": "Check availability",
-    "lead": "Choose your dates and a room type. We reply to every request within one working day.",
+    "lead": "Choose your dates and a room type at Vela Hotel. We reply to every request within one working day.",
     "checkin": "Check-in date",
     "checkout": "Check-out date",
     "checkinHint": "From {time} onwards",
@@ -164,7 +165,7 @@
     "metaTitle": "Contact",
     "metaDescription": "Reach Vela Hotel on {phone}. The hotel is in {neighborhood}, {city} and reception is open 24 hours.",
     "title": "Contact",
-    "lead": "Reception is open all day. If your question is urgent, calling is fastest.",
+    "lead": "Reception at Vela Hotel is open all day. If your question is urgent, calling is fastest.",
     "directHeading": "Direct",
     "formHeading": "Send a message",
     "receptionHours": "Reception is open 24 hours.",

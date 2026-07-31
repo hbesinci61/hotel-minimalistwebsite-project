@@ -5,9 +5,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { ThemeScript } from "@/components/layout/ThemeScript";
 import { hotel } from "@/content/hotel";
 import { hreflang, routing, type Locale } from "@/lib/routing";
+import { hotelSchema, websiteSchema } from "@/lib/schema";
 import "../globals.css";
 
 /**
@@ -91,6 +93,10 @@ export default async function LocaleLayout({
     >
       <head>
         <ThemeScript />
+        {/* Ana varlık ve site düğümü — sitede yalnızca burada, bir kez.
+            Alt sayfalar bunlara @id ile referans verir (CLAUDE.md §10.3). */}
+        <JsonLd schema={hotelSchema(locale)} />
+        <JsonLd schema={websiteSchema(locale)} />
       </head>
       <body className="bg-bg text-ink flex min-h-dvh flex-col antialiased">
         <NextIntlClientProvider>

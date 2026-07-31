@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { hotel } from "@/content/hotel";
 import type { Locale } from "@/lib/routing";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -40,10 +42,24 @@ export default async function FaqPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("faq");
+  const tNav = await getTranslations("nav");
 
   return (
     <main id="main">
-      <PageHeader title={t("title")} lead={t("lead")} />
+      {/* Şemadaki soru ve cevaplar hotel.ts'ten gelir — aşağıda GÖRÜNEN
+          metnin tam olarak aynı kaynağı. Görünmeyen içerik işaretlenmez. */}
+      <JsonLd schema={faqSchema(locale)} />
+      <JsonLd
+        schema={breadcrumbSchema(locale, tNav("home"), [
+          { name: tNav("faq"), href: "/sss" },
+        ])}
+      />
+
+      <PageHeader
+        eyebrow={`${hotel.neighborhood[locale]}, ${hotel.city[locale]}`}
+        title={t("title")}
+        lead={t("lead")}
+      />
 
       <Container className="py-16 md:py-24">
         <div className="border-border border-t">

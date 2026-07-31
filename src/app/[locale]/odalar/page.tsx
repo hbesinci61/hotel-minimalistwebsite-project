@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { hotel } from "@/content/hotel";
 import { Link } from "@/lib/navigation";
 import type { Locale } from "@/lib/routing";
+import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -30,11 +32,17 @@ export default async function RoomsPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("rooms");
+  const tNav = await getTranslations("nav");
   const tRoom = await getTranslations("room");
   const format = await getFormatter();
 
   return (
     <main id="main">
+      <JsonLd
+        schema={breadcrumbSchema(locale, tNav("home"), [
+          { name: tNav("rooms"), href: "/odalar" },
+        ])}
+      />
       <PageHeader
         eyebrow={`${hotel.neighborhood[locale]}, ${hotel.city[locale]}`}
         title={t("title")}

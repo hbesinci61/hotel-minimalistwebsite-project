@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { hotel } from "@/content/hotel";
 import type { Locale } from "@/lib/routing";
+import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -30,9 +32,15 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");
+  const tNav = await getTranslations("nav");
 
   return (
     <main id="main">
+      <JsonLd
+        schema={breadcrumbSchema(locale, tNav("home"), [
+          { name: tNav("about"), href: "/hakkimizda" },
+        ])}
+      />
       <PageHeader
         eyebrow={`${hotel.neighborhood[locale]}, ${hotel.city[locale]}`}
         title={t("title")}

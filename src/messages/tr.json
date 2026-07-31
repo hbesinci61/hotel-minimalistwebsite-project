@@ -37,14 +37,15 @@
     "amenitiesHeading": "Otel olanakları",
     "bookThis": "Bu odayı sorgula",
     "backToRooms": "Tüm odalara dön",
-    "metaTitle": "{name} — {hotel}",
-    "metaDescription": "{name}, {city} {neighborhood}'daki Vela Hotel'de {size} m² büyüklüğünde ve {guests} kişiliktir. Kahvaltı fiyata dahildir."
+    "metaTitle": "{name} — {size} m²",
+    "metaDescription": "{name}, {city} {neighborhood}'daki Vela Hotel'de {size} m² büyüklüğünde ve {guests} kişiliktir. Kahvaltı fiyata dahildir.",
+    "positioning": "{name}, {city} {neighborhood}'daki Vela Hotel'in {total} odasından biridir. {size} m² büyüklüğünde ve en fazla {guests} kişiliktir."
   },
   "rooms": {
     "metaTitle": "Odalar ve fiyatlar",
     "metaDescription": "Vela Hotel'de {types} oda tipi, toplam {total} oda bulunur. Büyüklük, kapasite, yatak ve gecelik başlangıç fiyatları bu sayfada listelenmiştir.",
     "title": "Odalar",
-    "lead": "Üç oda tipi, toplam {total} oda. Binanın kendi geometrisi her katta farklı bir plan bıraktığı için hiçbir oda diğerinin kopyası değil.",
+    "lead": "Vela Hotel'de üç oda tipi, toplam {total} oda bulunuyor. Binanın kendi geometrisi her katta farklı bir plan bıraktığı için hiçbir oda diğerinin kopyası değil.",
     "detail": "{name} detayları",
     "cta": "Müsaitlik Sorgula"
   },
@@ -52,7 +53,7 @@
     "metaTitle": "Kahvaltı ve teras",
     "metaDescription": "Vela Hotel'de kahvaltı 07:30–10:30 arası teras katında servis edilir ve fiyata dahildir. Teras bar 16:00'dan sonra açıktır. Otelde restoran yoktur.",
     "title": "Kahvaltı ve teras",
-    "lead": "Otelde restoran yok. Olan iki şey var: her sabah kurulan bir kahvaltı sofrası ve akşamüstü açılan bir çatı terası.",
+    "lead": "Vela Hotel'de restoran yok. Olan iki şey var: her sabah kurulan bir kahvaltı sofrası ve akşamüstü açılan bir çatı terası.",
     "breakfast": {
       "title": "Kahvaltı",
       "body": "07:30–10:30 arası teras katında, tüm oda tiplerinde fiyata dahil. Peynir ve zeytin haftalık olarak Kadıköy'den, ekmek her sabah caddenin altındaki fırından gelir. Yumurta siparişle pişer."
@@ -74,7 +75,7 @@
     "metaTitle": "Konum ve ulaşım",
     "metaDescription": "Vela Hotel, {city} {neighborhood}'da {street} adresindedir. Galata Kulesi'ne 250 metre, Karaköy'e 700 metre yürüme mesafesindedir.",
     "title": "Konum ve ulaşım",
-    "lead": "{street}, Galata'nın en dik ve en sessiz caddelerinden biri. Araç trafiğine kapalı olduğu için son birkaç yüz metre yürüyerek geliniyor.",
+    "lead": "Vela Hotel, {street} adresinde. Burası Galata'nın en dik ve en sessiz caddelerinden biri; araç trafiğine kapalı olduğu için son birkaç yüz metre yürüyerek geliniyor.",
     "addressHeading": "Adres",
     "openMap": "Haritada aç",
     "gettingHereHeading": "Nasıl gelinir",
@@ -102,7 +103,7 @@
     "metaTitle": "Hakkımızda",
     "metaDescription": "Vela Hotel, {city} {neighborhood}'da {year} yapımı bir apartmanda {rooms} odalı bir butik oteldir. Bina cephesi korunarak yenilenmiştir.",
     "title": "Bina ve biz",
-    "lead": "{year} yapımı bir apartman. Cephesi hiç değişmedi, içi bir kez baştan kuruldu.",
+    "lead": "Vela Hotel'in bulunduğu bina {year} yapımı. Cephesi hiç değişmedi, içi bir kez baştan kuruldu.",
     "paragraphs": {
       "building": "Bina {year}'da bir aile apartmanı olarak yapıldı. Serdar-ı Ekrem Caddesi o dönemde Galata'nın en yeni sokaklarından biriydi; cephedeki taş işçiliği ve demir balkon korkulukları bugün de ilk günkü yerinde duruyor.",
       "restoration": "Yenileme {since} yılında tamamlandı. Cepheye dokunulmadı, taşıyıcı duvarlar korundu. Kat planları değiştirilmediği için hiçbir oda diğerinin kopyası değil — {rooms} odanın her biri binanın kendi geometrisine uyuyor.",
@@ -118,13 +119,13 @@
     "metaTitle": "Sıkça sorulan sorular",
     "metaDescription": "Vela Hotel'de giriş 15:00, çıkış 12:00'dir. Kahvaltı fiyata dahildir, evcil hayvan kabul edilir, otelin otoparkı ve asansörü yoktur.",
     "title": "Sıkça sorulanlar",
-    "lead": "Misafirlerimizin rezervasyondan önce en çok sorduğu şeyler. Cevabı burada bulamadığınız bir soru varsa arayın."
+    "lead": "Vela Hotel'e rezervasyondan önce en çok sorulan şeyler. Cevabı burada bulamadığınız bir soru varsa arayın."
   },
   "booking": {
     "metaTitle": "Müsaitlik sorgula",
     "metaDescription": "Vela Hotel için tarih, oda tipi ve kişi sayısı seçerek müsaitlik sorgulayın. Giriş {checkin}, çıkış {checkout}.",
     "title": "Müsaitlik sorgula",
-    "lead": "Tarihlerinizi ve oda tipini seçin. Talebinizi aldıktan sonra en geç bir iş günü içinde dönüş yapıyoruz.",
+    "lead": "Vela Hotel'de tarihlerinizi ve oda tipini seçin. Talebinizi aldıktan sonra en geç bir iş günü içinde dönüş yapıyoruz.",
     "checkin": "Giriş tarihi",
     "checkout": "Çıkış tarihi",
     "checkinHint": "Giriş saat {time}'ten itibaren",
@@ -164,7 +165,7 @@
     "metaTitle": "İletişim",
     "metaDescription": "Vela Hotel'e {phone} numarasından ulaşabilirsiniz. Otel {city} {neighborhood}'dadır ve resepsiyon 7/24 açıktır.",
     "title": "İletişim",
-    "lead": "Resepsiyon gün boyu açık. Acele bir sorunuz varsa aramak en hızlısı.",
+    "lead": "Vela Hotel'de resepsiyon gün boyu açık. Acele bir sorunuz varsa aramak en hızlısı.",
     "directHeading": "Doğrudan",
     "formHeading": "Mesaj gönderin",
     "receptionHours": "Resepsiyon 7/24 açıktır.",

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { hotel, type RoomSlug } from "@/content/hotel";
 import { Link } from "@/lib/navigation";
 import { routing, type Locale } from "@/lib/routing";
+import { breadcrumbSchema, roomSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale; slug: string }> };
@@ -32,7 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return pageMetadata({
     locale,
     href: { pathname: "/odalar/[slug]", params: { slug: room.slug as RoomSlug } },
-    title: t("metaTitle", { name: room.name[locale], hotel: hotel.name }),
+    // Marka layout'taki şablondan gelir ("%s | Vela Hotel"); burada
+    // tekrarlanırsa başlıkta iki kez görünür.
+    title: t("metaTitle", { name: room.name[locale], size: room.sizeSqm }),
     // Açıklama olgusal: ad, m², kapasite, konum. Pazarlama sıfatı yok (§10.4).
     description: t("metaDescription", {
       name: room.name[locale],
@@ -53,18 +57,44 @@ export default async function RoomDetailPage({ params }: Props) {
 
   const t = await getTranslations("room");
   const tRooms = await getTranslations("rooms");
+  const tNav = await getTranslations("nav");
   const format = await getFormatter();
 
   return (
     <main id="main">
+      <JsonLd schema={roomSchema(locale, room)} />
+      <JsonLd
+        schema={breadcrumbSchema(locale, tNav("home"), [
+          { name: tNav("rooms"), href: "/odalar" },
+          {
+            name: room.name[locale],
+            href: { pathname: "/odalar/[slug]", params: { slug: room.slug } },
+          },
+        ])}
+      />
+
       <PageHeader
-        eyebrow={tRooms("title")}
+        eyebrow={`${tRooms("title")} · ${hotel.neighborhood[locale]}, ${hotel.city[locale]}`}
         title={room.name[locale]}
         lead={room.summary[locale]}
       />
 
       <Container className="py-16 md:py-24">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+        {/* Kendi başına yeten olgusal cümle — CLAUDE.md §10.4.
+            Bağlamından koparılıp alıntılandığında bile hangi otelin
+            hangi odası olduğu anlaşılır. */}
+        <p className="font-display text-h3 text-ink max-w-[46ch] text-balance">
+          {t("positioning", {
+            name: room.name[locale],
+            total: hotel.numberOfRooms,
+            size: room.sizeSqm,
+            guests: room.maxOccupancy,
+            neighborhood: hotel.neighborhood[locale],
+            city: hotel.city[locale],
+          })}
+        </p>
+
+        <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
           {/* Künye */}
           <div className="md:col-span-5">
             <h2 className="font-sans text-small text-ink tracking-widest uppercase">

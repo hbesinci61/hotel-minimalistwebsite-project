@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Container } from "@/components/ui/Container";
 import { hotel } from "@/content/hotel";
 import type { Locale } from "@/lib/routing";
+import { breadcrumbSchema } from "@/lib/schema";
 import { pageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -29,12 +31,18 @@ export default async function LocationPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("location");
+  const tNav = await getTranslations("nav");
   const tDist = await getTranslations("distance");
 
   const mapsUrl = `https://www.openstreetmap.org/?mlat=${hotel.geo.latitude}&mlon=${hotel.geo.longitude}#map=17/${hotel.geo.latitude}/${hotel.geo.longitude}`;
 
   return (
     <main id="main">
+      <JsonLd
+        schema={breadcrumbSchema(locale, tNav("home"), [
+          { name: tNav("location"), href: "/konum" },
+        ])}
+      />
       <PageHeader
         eyebrow={`${hotel.neighborhood[locale]}, ${hotel.city[locale]}`}
         title={t("title")}

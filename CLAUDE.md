@@ -688,10 +688,19 @@ Sırayla ilerlenir. Bir faz bitmeden sonrakine geçilmez.
 > vaat eden bir nav bağlantısı, sitenin geri kalanındaki dürüstlüğü bozar.
 
 **Faz 3 — SEO + GEO**
-- [ ] `lib/schema.ts` — tüm JSON-LD üreticileri
-- [ ] Her sayfada `generateMetadata` + canonical + hreflang
-- [ ] `sitemap.ts`, `robots.ts`, `public/llms.txt`
-- [ ] İçerik §10.4'e göre yeniden yazılır
+- [x] `lib/schema.ts` — Hotel, WebSite, HotelRoom+AggregateOffer, FAQPage, BreadcrumbList
+- [x] Her sayfada `generateMetadata` + canonical + hreflang (`lib/seo.ts`)
+- [x] `sitemap.ts`, `robots.ts`, `/llms.txt` (statik dosya değil, `hotel.ts`'ten üretilir)
+- [x] İçerik §10.4'e göre gözden geçirildi — 18/18 sayfada varlık netliği
+
+> **Denetim betikleri.** Faz 3'te iki otomatik denetim yazıldı; şema veya
+> içerik değiştiğinde tekrar çalıştır:
+> - JSON-LD geçerliliği + şemadaki olguların sayfada görünürlüğü (63 kontrol)
+> - Varlık netliği: her sayfanın `<main>` içinde otel adı + semt + şehir
+>
+> İkincisi ilk çalıştırmada **18 sayfanın 16'sında başarısız oldu** — otel adı
+> yalnızca header/footer'daydı. Sayfa metnine bakan bir yapay zekâ hangi otelden
+> söz edildiğini bilemezdi. Yeni sayfa eklerken bu denetimi çalıştır.
 
 **Faz 4 — Cila ve doğrulama**
 - [ ] GSAP animasyonları + `matchMedia` koruması
