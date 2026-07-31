@@ -24,21 +24,33 @@
  * Vela Hotel KURGUSALDIR. Gerçek bir işletme değildir.
  */
 
+/**
+ * Sitenin kanonik kök adresi.
+ *
+ * Sıra önemli:
+ *  1. NEXT_PUBLIC_SITE_URL — kendi alan adın. Elle ayarlanır, her şeyi ezer.
+ *  2. Vercel'in otomatik verdiği üretim adresi — ilk deploy'da alan adı
+ *     henüz bilinmediği için gerekli. Bu yedek olmasaydı ilk yayında
+ *     canonical yer tutucu alan adını gösterir, Lighthouse SEO'yu düşürürdü.
+ *  3. Yer tutucu — yalnızca yerel geliştirmede.
+ *
+ * NEXT_PUBLIC_ öneki şart: hotel.ts istemci bileşenlerince de içe aktarılıyor.
+ */
+function siteUrl(): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+
+  const vercelUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelUrl) return `https://${vercelUrl}`;
+
+  return "https://velahotel.com";
+}
+
 export const hotel = {
   // --- Kimlik ---------------------------------------------------
   name: "Vela Hotel",
   legalName: "Vela Butik Otelcilik A.Ş.",
-  /**
-   * Sitenin kanonik adresi.
-   *
-   * Bu bir otel olgusu değil, DAĞITIM yapılandırmasıdır: önizleme
-   * ortamı, kendi alan adın ve yerel sunucu farklı adreslerde çalışır.
-   * NEXT_PUBLIC_SITE_URL ile ezilir; ezilmezse yer tutucuya düşer.
-   *
-   * Doğru ayarlanmazsa canonical ve hreflang etiketleri yanlış alan adını
-   * gösterir — Lighthouse SEO denetimi bunu yakalar.
-   */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velahotel.com",
+  /** Bkz. siteUrl() — otel olgusu değil, dağıtım yapılandırması. */
+  url: siteUrl(),
   /** E.164 — şema ve tel: bağlantısı bunu kullanır */
   telephone: "+902120000000",
   /** Ekranda görünen biçim */
