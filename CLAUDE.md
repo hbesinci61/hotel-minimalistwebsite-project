@@ -38,6 +38,13 @@ gerçekten ölçüldü — iddia değil.
 - Klavye ile tüm site gezilebilir, focus her adımda görünür
 - 320–1440px arası yatay kaydırma yok
 
+**Canlı sitede ölçüm** (https://otel1website.vercel.app, 4 koşunun medyanı):
+Performance **97** · Accessibility 100 · Best Practices 100 · SEO 100 ·
+LCP **1.6s** · CLS 0. Gerçek CDN, yerel simülasyondan daha iyi sonuç veriyor.
+
+> Lighthouse tek koşuda oynaktır — bu ölçümde Performance 92–100 arasında
+> değişti. **Tek koşuyu sonuç diye raporlama**, en az 3–4 koşunun medyanını al.
+
 > **LCP hedefi neden 2.0s değil?** Başlangıçta 2.0s yazmıştım; ölçmeden.
 > Ölçüm: Lighthouse mobil, Moto G Power emülasyonu, 4× yavaşlatılmış CPU ve
 > simüle yavaş 4G (562ms istek gecikmesi, 1.5 Mbps). **Gözlemlenen** render

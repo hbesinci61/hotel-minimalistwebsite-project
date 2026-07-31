@@ -3,6 +3,8 @@
 İstanbul Galata'da kurgusal bir butik otel için tasarlanmış tanıtım sitesi.
 Fotoğraf kullanmadan, yalnızca tipografi ve boşlukla kurulmuş bir tasarım denemesi.
 
+**[Canlı demo → otel1website.vercel.app](https://otel1website.vercel.app)**
+
 ![Vela Hotel ana sayfası](docs/screenshot.jpg)
 
 ## Neler var
@@ -35,6 +37,16 @@ Tarayıcıda [localhost:3000](http://localhost:3000) adresini açın.
 ## Teknolojiler
 
 Next.js 16 · TypeScript · Tailwind CSS v4 · next-intl
+
+## Ölçümler
+
+Canlı sitede, Lighthouse mobil (4 koşunun medyanı):
+
+| Performance | Accessibility | Best Practices | SEO |
+|---|---|---|---|
+| 97 | 100 | 100 | 100 |
+
+LCP 1.6 s · CLS 0
 
 ## Not
 
