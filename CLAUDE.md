@@ -64,7 +64,7 @@ LCP **1.6s** · CLS 0. Gerçek CDN, yerel simülasyondan daha iyi sonuç veriyor
 | Animasyon | **GSAP + ScrollTrigger** | Bkz. §7 |
 | Çok dil | **next-intl** | TR + EN, ayrı URL'ler, doğru hreflang |
 | İkonlar | **Lucide** (SVG) | Emoji ikon **yasak** |
-| Dağıtım | Statik export veya Vercel | Her sayfa build zamanında üretilir |
+| Dağıtım | **Vercel** — https://otel1website.vercel.app | GitHub'a bağlı: `main`'e her push üretime gider |
 
 > **Next 16 eğitim verinden farklıdır.** `middleware.ts` → `proxy.ts` gibi kırıcı değişiklikler var. Hafızandan yazma: yerel dokümanlar `node_modules/next/dist/docs/` altında mevcut, önce oraya bak. Proje kökündeki `AGENTS.md` de bunu hatırlatır — silme.
 
@@ -774,6 +774,16 @@ Sırayla ilerlenir. Bir faz bitmeden sonrakine geçilmez.
 - [x] Lighthouse mobil + masaüstü ölçüldü, sonuçlar §1'de
 - [x] 320–1440px arası responsive doğrulama (iki gerçek hata bulundu)
 - [x] §17 kontrol listesi
+
+### Dağıtım
+
+`main` dalına yapılan her push otomatik olarak üretime gider (Vercel ↔ GitHub bağlı).
+Elle yayına almak gerekirse: `npx vercel --prod`.
+
+Site adresi `hotel.ts` içindeki `siteUrl()` ile çözülür ve Vercel'in verdiği
+üretim adresine kendiliğinden düşer — **ilk yayın için elle env ayarı gerekmez.**
+Kendi alan adın bağlanırsa `NEXT_PUBLIC_SITE_URL`'i Vercel panelinden ayarla,
+yoksa canonical eski adreste kalır.
 
 > **Ölçüm nasıl tekrarlanır:**
 > ```bash
