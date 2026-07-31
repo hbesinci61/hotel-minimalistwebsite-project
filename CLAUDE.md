@@ -306,13 +306,31 @@ Bölüm arası dikey boşluk masaüstünde en az `--space-7`. Sıkışık düzen
 | Metin üstüne düşük kontrastlı gri (`#999` vb.) | §5'teki token'lar dışına çıkma |
 | Parallax + imleç takip efekti + partikül | Şıklık değil, gürültü |
 
-### Fotoğraf
+### Fotoğrafsız tasarım (bağlayıcı karar)
 
-- Kaynak: Unsplash veya Pexels. **Her görselin lisans/atıf bilgisi `public/images/CREDITS.md` içinde tutulur.**
-- Format AVIF veya WebP. JPEG yalnızca yedek.
-- Tek görsel > 250 KB olamaz; hero > 400 KB olamaz.
-- Fotoğraf dili tutarlı: doğal ışık, sıcak nötr tonlar, insan az veya yok, mimari/doku odaklı.
-- Veritabanı uyarısı: bu segmentte **1 numaralı başarısızlık sebebi kötü fotoğraftır**. Zayıf bir görseli düzeltmeye çalışma, değiştir.
+**Bu sitede tanıtım fotoğrafı kullanılmaz.** Tasarım tamamen tipografi, boşluk ve çizgi üzerine kurulur.
+
+Gerekçe: vasat stok fotoğraf bu segmentin 1 numaralı ucuzluk işaretidir; kötü fotoğraf koymaktansa hiç koymamak daha güçlü bir sonuç verir. Editoryal/mimari bir dil — iyi dizilmiş bir kitap gibi.
+
+**Bunun yerine kullanılacak araçlar:**
+
+| Araç | Nasıl |
+|---|---|
+| Devasa tipografi | Cormorant Garamond, `--text-display`. Başlık *görselin kendisidir*. |
+| Sayılar | `24 oda`, `1890`, `22 m²`, `250 m` iri puntoyla dizilir. Hem görsel çapa hem GEO yakıtı (§10.4). |
+| İnce çizgiler | `--color-border` ile yatay ayraçlar; sayfayı editoryal bir ızgaraya oturtur. |
+| Zemin blokları | `--color-bg` ↔ `--color-surface` dönüşümü bölümleri ayırır. |
+| Asimetrik ızgara | Ortalanmış her şey durgun görünür; dengeyi kaydır. |
+| Boşluk | En az `--spacing-section`. Boşluk burada süs değil, kompozisyon. |
+
+**Yasak:**
+- Fotoğraf yerine gri kutu, "resim gelecek" yer tutucusu, ikon dolgusu
+- Boşluğu doldurmak için eklenen dekoratif SVG, gradyan, desen
+- Yapay zekâ üretimi "otel fotoğrafı" — gerçekmiş gibi sunulan uydurma mekân
+
+**Boş görünme riski gerçektir.** Bir bölüm çıplak duruyorsa çözüm görsel eklemek değil, tipografik hiyerarşiyi güçlendirmektir: ölçek farkını büyüt, bir sayıyı öne çıkar, bir çizgi ekle.
+
+> Bu karar değişirse (fotoğraf eklenecekse) §12'deki görsel bütçesi ve `public/images/CREDITS.md` lisans kaydı zorunlu hâle gelir.
 
 ---
 
@@ -630,12 +648,17 @@ Sırayla ilerlenir. Bir faz bitmeden sonrakine geçilmez.
 - [x] `content/hotel.ts` doldurulur + build zamanı değişmez kontrolü
 
 **Faz 1 — İskelet ve tasarım sistemi**
-- [ ] Header (yapışkan, CTA'lı), Footer (NAP + demo notu), LanguageSwitcher
-- [ ] `components/ui/`: Button, Input, Field, Select
-- [ ] Açık/koyu tema geçişi
-- [ ] Ana sayfa: hero + tüm bölümler
+- [x] Header (yapışkan, CTA'lı), Footer (NAP + demo notu), LanguageSwitcher
+- [x] `components/ui/`: Button/ButtonLink, Container, Section
+- [x] Açık/koyu tema geçişi (`ThemeScript` ile FOUC'suz)
+- [x] Ana sayfa: hero + tüm bölümler
+- [x] Tarayıcıda gözle doğrulandı: açık/koyu tema, atlama bağlantısı, focus halkası
+
+> Form bileşenleri (Input, Field, Select) Faz 2'ye taşındı — tüketicisi olan
+> rezervasyon formu orada yazılıyor. Kullanıcısı olmayan bileşen spekülasyondur.
 
 **Faz 2 — Sayfalar**
+- [ ] `components/ui/`: Input, Field, Select (rezervasyon formuyla birlikte)
 - [ ] Odalar listesi + oda detay (`generateStaticParams`)
 - [ ] Restoran, Konum, Galeri, Hakkımızda, SSS, İletişim
 - [ ] Rezervasyon: tarih/kişi/oda seçici, doğrulama, simüle gönderim

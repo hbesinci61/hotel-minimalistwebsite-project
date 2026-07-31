@@ -18,16 +18,84 @@
     "closeMenu": "Menüyü kapat",
     "switchLanguage": "Dili değiştir"
   },
+  "room": {
+    "size": "Büyüklük",
+    "occupancy": "Kapasite",
+    "bed": "Yatak",
+    "count": "Oda sayısı",
+    "guests": "{count} kişi",
+    "roomsAvailable": "{count} oda",
+    "from": "Başlangıç fiyatı",
+    "perNight": "gecelik, kahvaltı dahil"
+  },
   "home": {
     "hero": {
-      "eyebrow": "Galata, İstanbul",
       "title": "Şehrin ortasında, sessiz bir eşik",
-      "lead": "Serdar-ı Ekrem Caddesi'nde, 1890 yapımı bir binada 24 oda.",
+      "lead": "Serdar-ı Ekrem Caddesi'nin sonunda, cephesi korunmuş bir apartmanın içinde. Kapıyı kapattığınızda İstanbul'un uğultusu geride kalır.",
+      "cta": "Müsaitlik Sorgula",
+      "statRooms": "Oda",
+      "statBuilding": "Bina yılı",
+      "statCheckin": "Giriş saati"
+    },
+    "positioning": {
+      "statement": "{name}, {city} {neighborhood}'da {year} yapımı bir binada yer alan {rooms} odalı bir butik oteldir."
+    },
+    "rooms": {
+      "title": "Odalar",
+      "lead": "Üç oda tipi, toplam {total} oda. Hiçbiri diğerinin kopyası değil; binanın kendi geometrisi her katta farklı bir plan bırakmış.",
+      "cta": "Tüm odaları gör"
+    },
+    "experience": {
+      "title": "Otelde ve çevresinde",
+      "breakfast": {
+        "title": "Kahvaltı",
+        "body": "Teras katında, 07:30–10:30 arası. Peynir ve zeytin haftalık olarak Kadıköy'den, ekmek her sabah caddenin altındaki fırından gelir."
+      },
+      "terrace": {
+        "title": "Teras",
+        "body": "Çatı katında, akşamüstü açılır. Haliç'e ve karşı yakaya bakar; ışık altıdan sonra bütün cepheyi turuncuya çevirir."
+      },
+      "neighborhood": {
+        "title": "Mahalle",
+        "body": "{neighborhood}, yürüyerek keşfedilmek üzere kurulmuş bir yer. Kapıdan çıkıp sağa dönün: cadde sizi tasarım dükkânlarının ve eski apartman kapılarının arasından aşağı indirir."
+      }
+    },
+    "location": {
+      "title": "Nereye ne kadar",
+      "lead": "{street}, Galata'nın en dik ve en sessiz caddelerinden biri. Aşağıdaki mesafelerin tamamı yürüme mesafesidir.",
+      "walk": "{minutes} dk yürüme",
+      "drive": "{minutes} dk araçla",
+      "cta": "Konum ve ulaşım"
+    },
+    "testimonials": {
+      "title": "Kalanlar ne diyor",
+      "one": {
+        "quote": "Merdivenleri çıkmak ilk gün zor geldi, sonra günün en iyi kısmı oldu.",
+        "author": "Elif K.",
+        "date": "Mart 2026"
+      },
+      "two": {
+        "quote": "Odanın penceresinden kule görünüyor. Perdeyi hiç kapatmadık.",
+        "author": "Tomas W.",
+        "date": "Şubat 2026"
+      },
+      "three": {
+        "quote": "Yirmi dört odalı bir yerde resepsiyondaki insan adınızı ikinci gün biliyor.",
+        "author": "Merve A.",
+        "date": "Ocak 2026"
+      }
+    },
+    "closing": {
+      "title": "Tarihlerinizi seçin",
       "cta": "Müsaitlik Sorgula"
     }
   },
   "footer": {
-    "demoNotice": "Bu site kurgusal bir otel için hazırlanmış bir portfolyo çalışmasıdır. Vela Hotel gerçek bir işletme değildir.",
+    "country": "Türkiye",
+    "contactHeading": "İletişim",
+    "exploreHeading": "Keşfet",
+    "checkinLine": "Giriş {checkin} · Çıkış {checkout}",
+    "demoNotice": "Bu site kurgusal bir otel için hazırlanmış bir portfolyo çalışmasıdır. Vela Hotel gerçek bir işletme değildir; adres, telefon, fiyatlar ve misafir yorumları örnek veridir.",
     "rights": "Tüm hakları saklıdır."
   },
   "theme": {

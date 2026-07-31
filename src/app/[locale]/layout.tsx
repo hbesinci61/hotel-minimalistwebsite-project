@@ -3,6 +3,9 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { ThemeScript } from "@/components/layout/ThemeScript";
 import { hotel } from "@/content/hotel";
 import { hreflang, routing, type Locale } from "@/lib/routing";
 import "../globals.css";
@@ -86,7 +89,10 @@ export default async function LocaleLayout({
       className={`${cormorant.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-dvh bg-bg text-ink antialiased">
+      <head>
+        <ThemeScript />
+      </head>
+      <body className="bg-bg text-ink flex min-h-dvh flex-col antialiased">
         <NextIntlClientProvider>
           {/* Klavye kullanıcıları için atlama bağlantısı — CLAUDE.md §11 */}
           <a
@@ -95,7 +101,9 @@ export default async function LocaleLayout({
           >
             {t("skipToContent")}
           </a>
-          {children}
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

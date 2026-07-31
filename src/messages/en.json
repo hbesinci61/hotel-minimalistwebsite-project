@@ -18,16 +18,84 @@
     "closeMenu": "Close menu",
     "switchLanguage": "Change language"
   },
+  "room": {
+    "size": "Size",
+    "occupancy": "Sleeps",
+    "bed": "Bed",
+    "count": "Rooms",
+    "guests": "{count} guests",
+    "roomsAvailable": "{count} rooms",
+    "from": "From",
+    "perNight": "per night, breakfast included"
+  },
   "home": {
     "hero": {
-      "eyebrow": "Galata, Istanbul",
       "title": "A quiet threshold in the middle of the city",
-      "lead": "Twenty-four rooms in an 1890 building on Serdar-ı Ekrem Street.",
+      "lead": "At the top of Serdar-ı Ekrem Street, inside an apartment building whose façade was never touched. Close the door and Istanbul's hum stays outside.",
+      "cta": "Check Availability",
+      "statRooms": "Rooms",
+      "statBuilding": "Built",
+      "statCheckin": "Check-in"
+    },
+    "positioning": {
+      "statement": "{name} is a {rooms}-room boutique hotel in {neighborhood}, {city}, set in a building dating from {year}."
+    },
+    "rooms": {
+      "title": "Rooms",
+      "lead": "Three room types, {total} rooms in total. None is a copy of another; the building's own geometry left a different plan on every floor.",
+      "cta": "See all rooms"
+    },
+    "experience": {
+      "title": "In the hotel and around it",
+      "breakfast": {
+        "title": "Breakfast",
+        "body": "On the terrace floor, 07:30 to 10:30. Cheese and olives come weekly from Kadıköy; the bread arrives every morning from the bakery below the street."
+      },
+      "terrace": {
+        "title": "Terrace",
+        "body": "On the roof, open from late afternoon. It faces the Golden Horn and the far shore; after six the light turns the whole façade orange."
+      },
+      "neighborhood": {
+        "title": "Neighbourhood",
+        "body": "{neighborhood} was built to be walked. Step out and turn right: the street takes you down between design shops and old apartment doors."
+      }
+    },
+    "location": {
+      "title": "How far is what",
+      "lead": "{street} is one of the steepest and quietest streets in Galata. Every distance below is on foot.",
+      "walk": "{minutes} min walk",
+      "drive": "{minutes} min by car",
+      "cta": "Location and getting here"
+    },
+    "testimonials": {
+      "title": "What guests say",
+      "one": {
+        "quote": "The stairs were hard on the first day, then they became the best part of it.",
+        "author": "Elif K.",
+        "date": "March 2026"
+      },
+      "two": {
+        "quote": "You can see the tower from the window. We never closed the curtain.",
+        "author": "Tomas W.",
+        "date": "February 2026"
+      },
+      "three": {
+        "quote": "In a place with twenty-four rooms, the person at reception knows your name by the second day.",
+        "author": "Merve A.",
+        "date": "January 2026"
+      }
+    },
+    "closing": {
+      "title": "Choose your dates",
       "cta": "Check Availability"
     }
   },
   "footer": {
-    "demoNotice": "This site is a portfolio piece built for a fictional hotel. Vela Hotel is not a real business.",
+    "country": "Türkiye",
+    "contactHeading": "Contact",
+    "exploreHeading": "Explore",
+    "checkinLine": "Check-in {checkin} · Check-out {checkout}",
+    "demoNotice": "This site is a portfolio piece built for a fictional hotel. Vela Hotel is not a real business; the address, phone number, rates and guest reviews are sample data.",
     "rights": "All rights reserved."
   },
   "theme": {
