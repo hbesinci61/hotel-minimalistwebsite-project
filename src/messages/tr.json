@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "defaultTitle": "Vela Hotel — Galata, İstanbul'da butik otel",
+    "defaultDescription": "Vela Hotel, İstanbul Beyoğlu'ndaki Galata semtinde 24 odalı bir butik oteldir. 1890 yapımı binada, Galata Kulesi'ne 250 metre yürüme mesafesinde."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "rooms": "Odalar",
+    "restaurant": "Restoran",
+    "location": "Konum",
+    "gallery": "Galeri",
+    "about": "Hakkımızda",
+    "faq": "Sıkça Sorulanlar",
+    "contact": "İletişim",
+    "book": "Müsaitlik Sorgula",
+    "skipToContent": "İçeriğe geç",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
+    "switchLanguage": "Dili değiştir"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Galata, İstanbul",
+      "title": "Şehrin ortasında, sessiz bir eşik",
+      "lead": "Serdar-ı Ekrem Caddesi'nde, 1890 yapımı bir binada 24 oda.",
+      "cta": "Müsaitlik Sorgula"
+    }
+  },
+  "footer": {
+    "demoNotice": "Bu site kurgusal bir otel için hazırlanmış bir portfolyo çalışmasıdır. Vela Hotel gerçek bir işletme değildir.",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "theme": {
+    "toggle": "Temayı değiştir",
+    "light": "Açık",
+    "dark": "Koyu"
+  }
+}

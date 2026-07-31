@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "defaultTitle": "Vela Hotel — Boutique hotel in Galata, Istanbul",
+    "defaultDescription": "Vela Hotel is a 24-room boutique hotel in Galata, Beyoğlu, Istanbul. Set in an 1890 building, a 250-metre walk from Galata Tower."
+  },
+  "nav": {
+    "home": "Home",
+    "rooms": "Rooms",
+    "restaurant": "Restaurant",
+    "location": "Location",
+    "gallery": "Gallery",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book": "Check Availability",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchLanguage": "Change language"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Galata, Istanbul",
+      "title": "A quiet threshold in the middle of the city",
+      "lead": "Twenty-four rooms in an 1890 building on Serdar-ı Ekrem Street.",
+      "cta": "Check Availability"
+    }
+  },
+  "footer": {
+    "demoNotice": "This site is a portfolio piece built for a fictional hotel. Vela Hotel is not a real business.",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "toggle": "Change theme",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}
