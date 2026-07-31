@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vela Hotel
 
-## Getting Started
+İstanbul Galata'da kurgusal bir butik otel için tasarlanmış tanıtım sitesi.
+Fotoğraf kullanmadan, yalnızca tipografi ve boşlukla kurulmuş bir tasarım denemesi.
 
-First, run the development server:
+![Vela Hotel ana sayfası](docs/screenshot.jpg)
+
+## Neler var
+
+- **İki dil** — Türkçe ve İngilizce, ayrı adreslerle (`/tr/odalar` ↔ `/en/rooms`)
+- **Açık ve koyu tema** — sistem tercihini izler, tek tıkla değiştirilebilir
+- **Rezervasyon formu** — tarih, oda tipi ve kişi sayısı doğrulanır; JavaScript kapalıyken bile çalışır
+- **Arama motorlarına hazır** — her sayfa build sırasında statik üretilir, canonical ve hreflang etiketleri otomatik
+- **Erişilebilir** — WCAG AA kontrast oranları, klavyeyle tam gezinme, görünür odak halkası
+
+## Tasarım notu
+
+Otel sitelerinde en çok göze batan şey vasat stok fotoğraftır. Bu projede
+fotoğraf hiç kullanılmadı; onun yerine iri serif başlıklar, ince çizgiler ve
+sayılar (24 oda, 1890, 250 m) kompozisyonu taşıyor.
+
+Otelin bütün bilgileri tek bir dosyada (`src/content/hotel.ts`) tutuluyor.
+Ekranda görünen metin de arama motorlarına giden veri de aynı kaynaktan
+besleniyor, böylece ikisi birbirinden ayrışamıyor.
+
+## Kurulum
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda [localhost:3000](http://localhost:3000) adresini açın.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Teknolojiler
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js 16 · TypeScript · Tailwind CSS v4 · next-intl
 
-## Learn More
+## Not
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vela Hotel gerçek bir işletme değildir. Adres, telefon, fiyatlar ve misafir
+yorumları örnek veridir. Bu depo bir portfolyo çalışmasıdır.
