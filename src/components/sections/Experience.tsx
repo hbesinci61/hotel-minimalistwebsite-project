@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 import { hotel } from "@/content/hotel";
 import type { Locale } from "@/lib/routing";
 
@@ -21,7 +22,7 @@ export async function Experience({ locale }: { locale: Locale }) {
           {t("title")}
         </h2>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+        <Reveal stagger className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
           {blocks.map((key, i) => (
             <article key={key} className="border-border border-t pt-8">
               <p
@@ -41,7 +42,7 @@ export async function Experience({ locale }: { locale: Locale }) {
               </p>
             </article>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

@@ -32,7 +32,7 @@ export async function Header() {
           {hotel.name}
         </Link>
 
-        <nav aria-label={t("home")} className="hidden items-center gap-8 md:flex">
+        <nav aria-label={t("home")} className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -44,14 +44,19 @@ export async function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1 md:gap-3">
-          <div className="hidden md:block">
+        <div className="flex items-center gap-1 lg:gap-3">
+          <div className="hidden lg:block">
             <LanguageSwitcher />
           </div>
           <ThemeToggle />
-          <ButtonLink href="/rezervasyon" className="hidden md:inline-flex">
-            {t("book")}
-          </ButtonLink>
+          {/* Görünürlük SARMALAYICIDA yönetilir, düğmenin kendisinde değil.
+              ButtonLink taban sınıflarında `inline-flex` taşıyor; ona ayrıca
+              `hidden` vermek iki display utility'sini çakıştırır ve Tailwind'in
+              stil sırasına göre `hidden` KAYBEDER. Ölçüldü: düğme 412 px'te
+              179×74 px görünür kalıyordu, hamburgerin yanında. */}
+          <div className="hidden lg:block">
+            <ButtonLink href="/rezervasyon">{t("book")}</ButtonLink>
+          </div>
           <MobileMenu />
         </div>
       </Container>

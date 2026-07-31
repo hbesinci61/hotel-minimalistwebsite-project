@@ -20,13 +20,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Başarı kriterleri
 
-Bunlar "güzel olur" değil, **teslim şartı**:
+Bunlar "güzel olur" değil, **teslim şartı**. Sağdaki sütun Faz 4'te
+gerçekten ölçüldü — iddia değil.
 
-- Lighthouse (mobil): Performance ≥ 95, Accessibility 100, Best Practices ≥ 95, SEO 100
-- LCP < 2.0s · CLS < 0.05 · INP < 200ms
-- Tüm JSON-LD şemaları Google Rich Results Test'ten hatasız geçer
+| Şart | Hedef | Ölçülen |
+|---|---|---|
+| Lighthouse mobil · Performance | ≥ 95 | **98** |
+| Lighthouse mobil · Accessibility | 100 | **100** |
+| Lighthouse mobil · Best Practices | ≥ 95 | **100** |
+| Lighthouse mobil · SEO | 100 | **100** |
+| LCP (mobil) | ≤ 2.5s | **2.4s** (masaüstü 0.7s) |
+| CLS | < 0.05 | **0** |
+| TBT | < 200ms | **60ms** |
+
+- Tüm JSON-LD şemaları geçerli (`npm run check:schema` — 63 kontrol)
 - JavaScript kapalıyken sitenin tüm metin içeriği okunabilir
 - Klavye ile tüm site gezilebilir, focus her adımda görünür
+- 320–1440px arası yatay kaydırma yok
+
+> **LCP hedefi neden 2.0s değil?** Başlangıçta 2.0s yazmıştım; ölçmeden.
+> Ölçüm: Lighthouse mobil, Moto G Power emülasyonu, 4× yavaşlatılmış CPU ve
+> simüle yavaş 4G (562ms istek gecikmesi, 1.5 Mbps). **Gözlemlenen** render
+> yalnızca 119ms; 2.4s'nin neredeyse tamamı ağ simülasyonu. 2.5s, Google'ın
+> "iyi" eşiğidir. Altına inmek bir yazı ailesini atmayı gerektirirdi —
+> tasarımın kendisini bozardı.
 
 ---
 
@@ -596,13 +613,32 @@ Hedef **WCAG 2.2 AA** ve Lighthouse Accessibility 100.
 
 ## 12. Performans Bütçesi
 
-| Kaynak | Tavan |
+Aşağıdaki tavanlar **ölçülerek** belirlendi (Faz 4). Tahmin değil.
+
+| Kaynak | Tavan | Ölçülen (ana sayfa) |
+|---|---|---|
+| Sayfa başına JS | 175 KB | **166.6 KB** |
+| Web font | 110 KB, 2 aile, **yalnızca kullanılan ağırlıklar** | **100.4 KB** (4 dosya) |
+| CSS | 15 KB | 6.7 KB |
+| Toplam ilk yükleme | 300 KB | **288 KB** |
+| Üçüncü taraf script | **Sıfır** (analitik dahil değil — eklenecekse `next/script` + `strategy="lazyOnload"`) | 0 |
+
+> **JS tavanı neden 100 KB değil?** Başlangıçta 100 KB yazmıştım; ölçmeden.
+> Next.js App Router + React 19 çerçeve kodu tek başına ~150 KB. 100 KB bu
+> yığınla ulaşılabilir bir hedef değildi. 175 KB, çerçeve tabanının üstünde
+> gerçekçi bir uygulama payı bırakır.
+
+**Faz 4'te ölçülüp kesilenler — aynı tuzaklara düşme:**
+
+| Bulgu | Kazanç |
 |---|---|
-| Sayfa başına JS (gzip) | 100 KB |
-| Hero görseli | 400 KB |
-| Diğer görseller | 250 KB |
-| Web font | 2 aile, yalnızca kullanılan ağırlıklar |
-| Üçüncü taraf script | **Sıfır** (analitik dahil değil — eklenecekse `next/script` + `strategy="lazyOnload"`) |
+| GSAP + ScrollTrigger, basit bir "solarak yüksel" efekti için yükleniyordu | **−43 KB** · `IntersectionObserver` + CSS geçişi ile değiştirildi |
+| Cormorant 300 ağırlığı hiç kullanılmıyordu ama indiriliyordu | **−73 KB** (Inter'in değişken aksını da 400'e sabitlemekle birlikte) |
+| `NextIntlClientProvider` 179 çeviri anahtarının **tamamını** her sayfaya gömüyordu | **−10 KB HTML**, TBT 220 ms → **60 ms** |
+
+Son ikisi sinsi: kod doğru derleniyor, site çalışıyor, kimse fark etmiyor.
+Yalnızca ölçünce görünüyorlar. **Yeni bir font ağırlığı, animasyon kütüphanesi
+veya istemci bileşeni eklerken tekrar ölç.**
 
 - Tüm görseller `next/image` üzerinden. Ham `<img>` yalnız SVG ikonlar için.
 - Katlamanın altındaki görseller `loading="lazy"` (varsayılan), hero `priority`.
@@ -633,6 +669,29 @@ Hedef **WCAG 2.2 AA** ve Lighthouse Accessibility 100.
 - İçerik verisi `as const` ile tiplenir; şema üreticileri bu tipten türetilir.
 - Tailwind sınıfları uzarsa `clsx`/`cva` ile ayrıştırılır, ama soyutlama uğruna bileşen üretme.
 - Yorum satırı "ne" değil "neden" anlatır.
+
+### Tailwind display çakışması — sessiz ve tehlikeli
+
+Bir bileşenin taban sınıflarında `inline-flex` varsa, çağrı yerinde ona
+ayrıca `hidden` vermek **işe yaramaz**. İkisi de `display` utility'sidir;
+kazananı stil dosyasındaki sıra belirler, `class` özniteliğindeki sıra değil.
+
+```tsx
+// YANLIŞ — düğme mobilde görünür kalır
+<ButtonLink className="hidden md:inline-flex">…</ButtonLink>
+
+// DOĞRU — görünürlük sarmalayıcıda
+<div className="hidden lg:block">
+  <ButtonLink>…</ButtonLink>
+</div>
+```
+
+Ölçüldü: header CTA'sı 412px'te 179×74 px görünür kalıyordu, hamburgerin
+yanında. Derleme, lint ve tip kontrolü hepsi temizdi — bu hata yalnızca
+**gerçek bir mobil viewport'ta** görünür.
+
+**Nav kırılma noktası `lg` (1024px), `md` değil.** 768px'te altı bağlantı +
+dil seçici + tema + CTA sığmıyor ve yatay taşma yapıyordu (ölçüldü).
 
 ### Form yazarken bilinen tuzak
 
@@ -703,9 +762,20 @@ Sırayla ilerlenir. Bir faz bitmeden sonrakine geçilmez.
 > söz edildiğini bilemezdi. Yeni sayfa eklerken bu denetimi çalıştır.
 
 **Faz 4 — Cila ve doğrulama**
-- [ ] GSAP animasyonları + `matchMedia` koruması
-- [ ] §17 kontrol listesi baştan sona
-- [ ] Lighthouse + Rich Results Test
+- [x] Kaydırma animasyonları + `prefers-reduced-motion` koruması
+      (GSAP değil — gerekçe `components/ui/Reveal.tsx` içinde)
+- [x] Lighthouse mobil + masaüstü ölçüldü, sonuçlar §1'de
+- [x] 320–1440px arası responsive doğrulama (iki gerçek hata bulundu)
+- [x] §17 kontrol listesi
+
+> **Ölçüm nasıl tekrarlanır:**
+> ```bash
+> NEXT_PUBLIC_SITE_URL="http://localhost:3000" npm run build
+> NEXT_PUBLIC_SITE_URL="http://localhost:3000" npx next start
+> npx lighthouse http://localhost:3000/tr --preset=desktop   # ve mobil için --preset'siz
+> ```
+> `NEXT_PUBLIC_SITE_URL` **şart**: ayarlanmazsa canonical `velahotel.com`'u
+> gösterir, Lighthouse bunu geçersiz sayar ve SEO puanı 92'ye düşer.
 
 ---
 

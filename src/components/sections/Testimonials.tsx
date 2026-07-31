@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 
 const quotes = ["one", "two", "three"] as const;
 
@@ -24,7 +25,7 @@ export async function Testimonials() {
           {t("title")}
         </h2>
 
-        <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+        <Reveal stagger className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
           {quotes.map((key) => (
             <figure key={key} className="border-border border-t pt-8">
               <blockquote className="font-display text-h3 text-ink leading-snug text-balance">
@@ -39,7 +40,7 @@ export async function Testimonials() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

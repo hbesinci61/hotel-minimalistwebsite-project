@@ -1,5 +1,6 @@
 import { getFormatter, getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { hotel } from "@/content/hotel";
 import { Link } from "@/lib/navigation";
@@ -33,7 +34,11 @@ export async function RoomsPreview({ locale }: { locale: Locale }) {
         {/* subgrid: kartların satırları birbirine hizalanır. Özet metni
             bir kartta 2, diğerinde 1 satır olduğunda künye tabloları
             kaymasın diye — hizasız satırlar düzeni ucuz gösterir. */}
-        <ul className="border-border mt-16 grid gap-px border-t md:grid-cols-3 md:grid-rows-[auto_auto_auto_auto]">
+        <Reveal
+          as="ul"
+          stagger
+          className="border-border mt-16 grid gap-px border-t md:grid-cols-3 md:grid-rows-[auto_auto_auto_auto]"
+        >
           {hotel.rooms.map((room) => (
             <li
               key={room.slug}
@@ -81,7 +86,7 @@ export async function RoomsPreview({ locale }: { locale: Locale }) {
               </Link>
             </li>
           ))}
-        </ul>
+        </Reveal>
 
         <div className="mt-16">
           <ButtonLink href="/odalar" variant="secondary">

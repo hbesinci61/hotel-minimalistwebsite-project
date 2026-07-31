@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -31,6 +32,7 @@ export default async function ContactPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("contact");
   const tNav = await getTranslations("nav");
+  const messages = await getMessages();
 
   return (
     <main id="main">
@@ -90,7 +92,10 @@ export default async function ContactPage({ params }: Props) {
               {t("formHeading")}
             </h2>
             <div className="mt-6">
+              {/* Form istemci bileşeni: kendi ad alanını sarıyor */}
+            <NextIntlClientProvider messages={{ contact: messages.contact }}>
               <ContactForm />
+            </NextIntlClientProvider>
             </div>
           </div>
         </div>

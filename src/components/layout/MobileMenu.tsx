@@ -28,7 +28,7 @@ export function MobileMenu() {
         type="button"
         onClick={() => dialogRef.current?.showModal()}
         aria-label={t("openMenu")}
-        className="inline-flex size-11 cursor-pointer items-center justify-center text-ink transition-opacity duration-200 hover:opacity-70 md:hidden"
+        className="inline-flex size-11 cursor-pointer items-center justify-center text-ink transition-opacity duration-200 hover:opacity-70 lg:hidden"
       >
         <Menu className="size-5" strokeWidth={1.5} aria-hidden="true" />
       </button>

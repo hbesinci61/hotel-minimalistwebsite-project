@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLd } from "@/components/layout/JsonLd";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { BookingForm } from "@/components/sections/BookingForm";
@@ -42,6 +43,7 @@ export default async function BookingPage({ params, searchParams }: Props) {
 
   const t = await getTranslations("booking");
   const tNav = await getTranslations("nav");
+  const messages = await getMessages();
 
   return (
     <main id="main">
@@ -57,7 +59,13 @@ export default async function BookingPage({ params, searchParams }: Props) {
       />
 
       <Container className="py-16 md:py-24">
-        <BookingForm locale={locale} preselectedRoom={preselected} />
+        {/* Form istemci bileşeni; ihtiyacı olan ad alanlarını burada
+            sarıyoruz. Kök layout yalnızca kabuğunkileri gönderiyor. */}
+        <NextIntlClientProvider
+          messages={{ booking: messages.booking, room: messages.room }}
+        >
+          <BookingForm locale={locale} preselectedRoom={preselected} />
+        </NextIntlClientProvider>
       </Container>
     </main>
   );

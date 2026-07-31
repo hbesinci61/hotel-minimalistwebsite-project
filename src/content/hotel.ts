@@ -28,8 +28,17 @@ export const hotel = {
   // --- Kimlik ---------------------------------------------------
   name: "Vela Hotel",
   legalName: "Vela Butik Otelcilik A.Ş.",
-  /** Yer tutucu. Yayına alınacaksa gerçekten sahip olunan alan adıyla değiştir. */
-  url: "https://velahotel.com",
+  /**
+   * Sitenin kanonik adresi.
+   *
+   * Bu bir otel olgusu değil, DAĞITIM yapılandırmasıdır: önizleme
+   * ortamı, kendi alan adın ve yerel sunucu farklı adreslerde çalışır.
+   * NEXT_PUBLIC_SITE_URL ile ezilir; ezilmezse yer tutucuya düşer.
+   *
+   * Doğru ayarlanmazsa canonical ve hreflang etiketleri yanlış alan adını
+   * gösterir — Lighthouse SEO denetimi bunu yakalar.
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://velahotel.com",
   /** E.164 — şema ve tel: bağlantısı bunu kullanır */
   telephone: "+902120000000",
   /** Ekranda görünen biçim */

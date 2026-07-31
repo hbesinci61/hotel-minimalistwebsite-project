@@ -32,6 +32,9 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# ...ama ornek dosya paylasilir: gercek deger icermez, yalnizca hangi
+# degiskenlerin gerektigini gosterir.
+!.env.example
 
 # vercel
 .vercel

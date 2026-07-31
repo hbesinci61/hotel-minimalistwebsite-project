@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -22,13 +22,21 @@ import "../globals.css";
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400"],
+  // YALNIZCA 400. Ölçüldü: 300 ağırlığı hiçbir yerde kullanılmıyordu
+  // ama iki font dosyası daha indiriliyordu. Başlıklar globals.css'te
+  // zaten 400 ile diziliyor.
+  weight: ["400"],
   display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin", "latin-ext"],
+  // Ağırlık belirtilmezse next/font tüm 100–900 aksını taşıyan DEĞİŞKEN
+  // fontu yükler. Ölçüldü: projede tek bir font-weight sınıfı bile yok,
+  // hiyerarşi boyut/renk/harf aralığıyla kuruluyor. Yeni bir ağırlık
+  // kullanacaksan buraya EKLEMEN gerekir, yoksa sessizce 400'e düşer.
+  weight: ["400"],
   display: "swap",
 });
 
@@ -85,6 +93,22 @@ export default async function LocaleLayout({
 
   const t = await getTranslations({ locale, namespace: "nav" });
 
+  /**
+   * İstemciye YALNIZCA istemci bileşenlerinin kullandığı ad alanları gider.
+   *
+   * NextIntlClientProvider'a mesaj verilmezse 179 anahtarın TAMAMI her
+   * sayfanın HTML'ine gömülür — ana sayfa rezervasyon hata metinlerini,
+   * SSS'i ve hakkımızda paragraflarını da taşıyordu (ölçüldü).
+   *
+   * Kabuktaki istemci bileşenleri: ThemeToggle (theme), LanguageSwitcher
+   * ve MobileMenu (nav). Form sayfaları kendi ad alanlarını ayrıca sarar.
+   */
+  const messages = await getMessages();
+  const shellMessages = {
+    nav: messages.nav,
+    theme: messages.theme,
+  };
+
   return (
     <html
       lang={locale}
@@ -99,7 +123,7 @@ export default async function LocaleLayout({
         <JsonLd schema={websiteSchema(locale)} />
       </head>
       <body className="bg-bg text-ink flex min-h-dvh flex-col antialiased">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={shellMessages}>
           {/* Klavye kullanıcıları için atlama bağlantısı — CLAUDE.md §11 */}
           <a
             href="#main"
